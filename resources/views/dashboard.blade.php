@@ -9,9 +9,9 @@
     @php
     // echo request()->input('page');
     @endphp --}}
-</body>
 @include('modal.scan')
 @include('modal.conf_pts')
+</body>
 </html>
 <script>
     $(document).ready(function(){
@@ -39,7 +39,17 @@
                 data: $form.serialize(),
                 success: function(response) {
                     // Handle the success response
-                    console.log(response);
+                    var arr = JSON.parse(response);
+                    var name = arr['name'];
+                    swal({
+                        title: "Good job!",
+                        text: name + " Successfully added!",
+                        icon: "success",
+                        buttons: false,
+                        });
+                        setTimeout(function() {
+                        window.location.reload();
+                        }, 3000);
                 },
                 error: function(response) {
                     // Handle the error response

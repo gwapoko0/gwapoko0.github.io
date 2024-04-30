@@ -20,5 +20,6 @@ class InsertDataController extends Controller
         $data->trans_by = $request->input('trans_by');
 
         $data->save();
+        echo json_encode($data);
     }
 }
