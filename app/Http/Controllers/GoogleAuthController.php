@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\tableData;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -71,7 +72,13 @@ class GoogleAuthController extends Controller
         if(Session::has('loginId')){
             $data = User::where('id','=',Session::get('loginId'))->first();
         }
-        return view('dashboard',compact('data'));
+        return $data;
+    }
+    
+    public function tableData()
+    {
+        $tableData = tableData::all();
+        return $tableData;
     }
 
     public function redirect()

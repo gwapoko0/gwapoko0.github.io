@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\modalController;
+use App\Http\Controllers\tableController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\InsertDataController;
 /*
@@ -25,9 +26,12 @@ Route::post('/login-user',[GoogleAuthController::class,'loginUser'])->name('logi
 Route::get('auth/google',[GoogleAuthController::class,'redirect'])->name('google-auth');
 Route::get('auth/google/call-back',[GoogleAuthController::class,'callbackGoogle']);
 Route::get('/logout',[GoogleAuthController::class,'logout']);
-Route::get('/dashboard',[GoogleAuthController::class,'dashboard'])->middleware('authCheck');
-// Route::get('/testing', [MenuController::class,'testing'])->name('testing');
 Route::post('/insert',[InsertDataController::class,'insert']);
 Route::get('/conf-modal',[modalController::class,'confModal']);
-
-
+Route::get('/dashboard', function () {
+    $googleAuthController = new GoogleAuthController();
+    $data = $googleAuthController->dashboard();
+    $tableData = $googleAuthController->tableData();
+    
+    return view('dashboard', compact('data', 'tableData'));
+})->middleware('authCheck')->name('dashboard');

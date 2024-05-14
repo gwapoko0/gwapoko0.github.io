@@ -9,11 +9,11 @@
         </div>
         <div class="modal-body">
           <label for="badge" class="class-control">Badge No.</label> 
-          <input type="text" class="form-control" name="badge" id="badge" maxlength="6">
+          <input type="text" class="form-control" name="badge" id="badge" maxlength="6" required>
           <label for="fname" class="control-label">Name</label>
-          <input type="text" class="form-control" name="fname" id="fname">
+          <input type="text" class="form-control" name="fname" id="fname" required>
           Supervisor
-          <input type="text" class="form-control" name="supv" id="supv">
+          <input type="text" class="form-control" name="supv" id="supv" required>
           <label for="area" class="class-control">Area</label>
           <select class="form-control" id="area" name="area">
             <option value=""></option>
@@ -22,13 +22,13 @@
             <option value="area3">area3</option>
           </select>
           <label for="adate" class="class-control">Date</label>
-          <input type="date" class="form-control" name="date" id="date">
+          <input type="date" class="form-control" name="date" id="date" required>
           <label for="pts" class="class-control">Points</label>
-          <input type="number" class="form-control" name="pts" id="pts">
+          <input type="number" class="form-control" name="pts" id="pts" required>
           <label for="remarks" class="class-control">Remarks</label>
           <textarea class="form-control" name="remarks" id="remarks"></textarea>
           <label for="trans_by" class="control-label">Trans By</label>
-          <input type="text" class="form-control" id="trans_by" name="trans_by">
+          <input type="text" class="form-control" id="trans_by" name="trans_by" required>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -9,6 +9,24 @@
     @php
     // echo request()->input('page');
     @endphp --}}
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Badge</th>
+                <!-- Add other fields as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($tableData as $item)
+                <tr>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->badge }}</td>
+                    <!-- Display other fields -->
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 @include('modal.scan')
 @include('modal.conf_pts')
 </body>
@@ -53,7 +71,16 @@
                 },
                 error: function(response) {
                     // Handle the error response
-                    console.error(response);
+                    // console.error(response);
+                    swal({
+                        title: "Error!",
+                        text: "Please fillup form",
+                        icon: "error",
+                        // buttons: false,
+                        });
+                        // setTimeout(function() {
+                        // window.location.reload();
+                        // }, 3000);
                 }
             });
         });
